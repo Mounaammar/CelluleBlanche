@@ -8,9 +8,17 @@
     "com.unity.test-framework": "1.1.22",
     "com.unity.textmeshpro": "3.0.1",
     "com.unity.timeline": "1.4.6",
+<<<<<<< HEAD
     "com.unity.ugui": "1.0.0",
     "com.unity.xr.interaction.toolkit": "0.10.0-preview.7",
     "com.unity.xr.oculus": "1.8.1",
+=======
+    "com.unity.toolchain.win-x86_64-linux-x86_64": "0.1.19-preview",
+    "com.unity.ugui": "1.0.0",
+    "com.unity.xr.interaction.toolkit": "0.10.0-preview.7",
+    "com.unity.xr.oculus": "1.8.1",
+    "com.unity.xr.openxr": "1.0.2",
+>>>>>>> e8c6ddbb15ba7ede35205c71b8dce9e8a0b5ef99
     "com.unity.xr.windowsmr": "4.4.1",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
