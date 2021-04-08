@@ -50,5 +50,5 @@ crashlytics-build.properties
 #project settings
 /ProjectSettings/GraphicsSettings.asset
 /ProjectSettings/DynamicsManager.asset
-/ProjectSettings/ProjectSttingsSettings.asset
+/ProjectSettings/ProjectSettings.asset
 /ProjectSettings/TimelineSettings.asset
