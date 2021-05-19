@@ -10,6 +10,10 @@ public class tournette_porte : MonoBehaviour
     public GameObject porte; 
     public bool estOuverte = false;
 
+    public void Update(){
+      //  porte.estOuverte.est = estOuverte;
+    }
+
 
 
     public void OnSelectEnter(){
