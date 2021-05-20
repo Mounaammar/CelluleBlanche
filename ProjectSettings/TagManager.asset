@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hand
   - interactiveObject
+  - waffer
   layers:
   - Default
   - TransparentFX
