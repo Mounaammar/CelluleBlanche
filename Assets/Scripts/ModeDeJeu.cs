@@ -10,7 +10,7 @@ public class ModeDeJeu : MonoBehaviour
 
     void Start()
     {
-        modeDeJeu = ModeDeJeuEnum.JEU_LIBRE;
+        //modeDeJeu = ModeDeJeuEnum.JEU_LIBRE;
     }
 
 	public void setModeDeJeu(string mode)
