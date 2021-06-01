@@ -9,13 +9,25 @@ public class creationWaffer : MonoBehaviour
     public Material mOriginal;  
     public Material mChangement;
     public Material mFin;
-    public AudioSource au;
+
+    public wafferScript wS;
+
+    public Material mWafferFin;
+
+    public AudioSource auLiquide;
+    public AudioSource au2;
+    public AudioSource auPorte;
     private bool aWaffer;
-    public GameObject waffer; 
+    public Transform tailleDuWaffer; 
     private bool porteEstFermee;
+    private bool aLiquide;
+    public Material matFin;
+    public Renderer matDuWaffer;
 
     public void setPorteEstFermee(bool e){
         porteEstFermee = e;
+        auPorte.Play();
+
     }
 
 
@@ -36,13 +48,26 @@ public class creationWaffer : MonoBehaviour
             this.GetComponent<Renderer>().material = mChangement;
             aWaffer = true ;
         }
-        if(collision.tag == "flacon" && aWaffer && !porteEstFermee ){
+        if(collision.tag == "flacon" && aWaffer ){
 
             this.GetComponent<Renderer>().material = mFin;
-            au.Play();
-
+            aLiquide = true;
+            auLiquide.Play();
         }
+
+        
 
 
     }
+    public void lancerMachine(){
+
+            if(aLiquide && aWaffer){
+                au2.Play();
+                tailleDuWaffer.localScale += new Vector3(0f,0.05f,0f);
+                matDuWaffer.material = matFin;
+                wS.setEstFini();
+
+}
+
+        }
 }

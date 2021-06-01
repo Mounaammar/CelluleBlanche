@@ -10,13 +10,14 @@ public class tournette_porte : MonoBehaviour
     public GameObject porte; 
     public GameObject fond;
     public bool estOuverte = false;
-    private MonoBehaviour fondScript;
+    public  creationWaffer fondScript;
 
     public void Update(){
       //  porte.estOuverte.est = estOuverte;
     }
 
     public void OnStart(){
+        //fondScript = fond.GetComponent<creationWaffer>();
       
     }
 
@@ -27,15 +28,14 @@ public class tournette_porte : MonoBehaviour
                 porte.transform.Translate(0,1f,1f, Space.Self); 
                 porte.transform.Rotate(-90,0,0);
                 estOuverte = true;
-                fond.GetComponent<creationWaffer>().setPorteEstFermee(true);  
+                fondScript.setPorteEstFermee(false);  
                   
                     
            }else{
                porte.transform.Translate(0,1f,-1f, Space.Self);
                porte.transform.Rotate(90,0,0);
                 estOuverte = false;
-               fond.GetComponent<creationWaffer>().setPorteEstFermee(false);
-     
+                fondScript.setPorteEstFermee(true);
                 
            }
     }

@@ -7,6 +7,9 @@ TagManager:
   - Hand
   - interactiveObject
   - waffer
+  - flacon
+  - patron
+  - clef
   layers:
   - Default
   - TransparentFX
