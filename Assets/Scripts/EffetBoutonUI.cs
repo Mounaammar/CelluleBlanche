@@ -11,16 +11,18 @@ public class EffetBoutonUI : MonoBehaviour
     public string infos;
 
     private bool estActif = false;
+    public Text t;
 
    
     
     void Start()
     {
-        Text t = GameObject.Find("Information").GetComponent<UnityEngine.UI.Text>(); 
+        //Text t = GameObject.Find("Information").GetComponent<UnityEngine.UI.Text>(); 
         UiButton.onClick.AddListener(()=>{
             if(!estActif){
             estActif =true;
-            t.text = infos;}
+            t.text = infos;
+            }
         else{
             t.text = "";
             estActif = false;

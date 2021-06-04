@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class wafferScript : MonoBehaviour
+public class LaserScript : MonoBehaviour
 {
-    public bool estFini;
-    public bool aPatron;
 
-
-
+    public wafferScript ws;
+    public decoupe d;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +19,7 @@ public class wafferScript : MonoBehaviour
         
     }
 
-    public void setEstFini(){
-        estFini = true;
+    public void OnTriggerEnter(){
+        d.creerClef();
     }
 }

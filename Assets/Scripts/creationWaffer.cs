@@ -24,6 +24,8 @@ public class creationWaffer : MonoBehaviour
     public Material matFin;
     public Renderer matDuWaffer;
 
+    public bool estFait;
+
     public void setPorteEstFermee(bool e){
         porteEstFermee = e;
         auPorte.Play();
@@ -44,7 +46,7 @@ public class creationWaffer : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collision){
-        if(collision.tag == "waffer"){
+        if(collision.tag == "waffer" ){
             this.GetComponent<Renderer>().material = mChangement;
             aWaffer = true ;
         }
@@ -62,12 +64,14 @@ public class creationWaffer : MonoBehaviour
     public void lancerMachine(){
 
             if(aLiquide && aWaffer){
+                if(!estFait){
                 au2.Play();
-                tailleDuWaffer.localScale += new Vector3(0f,0.05f,0f);
+                tailleDuWaffer.localScale += new Vector3(0f,0.1f,0f);
                 matDuWaffer.material = matFin;
                 wS.setEstFini();
-
-}
+                estFait = true;
+            }
 
         }
+    }
 }

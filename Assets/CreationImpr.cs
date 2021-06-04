@@ -8,13 +8,15 @@ public class CreationImpr : MonoBehaviour
     public Transform thisTransform;
     public Rigidbody wafferBody;
 
-    private bool aWaffer;
-    private bool aPatron;
+    public bool aWaffer;
+    public bool aPatron;
     public Transform patron;
     public Rigidbody patronBody;
 
     public Renderer patronMat;
     public Renderer wafferMat;
+
+    public wafferScript ws;
 
     public UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable grabPatron;
     public UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable grabWaffer;
@@ -23,8 +25,7 @@ public class CreationImpr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        aPatron = false;
-        aWaffer = false;
+
         
     }
 
@@ -35,7 +36,7 @@ public class CreationImpr : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collision){
-        if(collision.tag =="waffer"){
+        if(collision.tag =="waffer" && ws.estFini){
             waffer.position = thisTransform.position + thisTransform.TransformDirection(new Vector3(0f, 0.005f,-0.01f));
             waffer.eulerAngles  = new Vector3(0,0,0);
             wafferBody.constraints = RigidbodyConstraints.FreezeAll;
@@ -57,8 +58,8 @@ public class CreationImpr : MonoBehaviour
             wafferMat.material = patronMat.material;
             grabPatron.enabled = true;
             grabWaffer.enabled = true;
-
             wafferMat.material = matFin;
+            ws.aPatron =true;
         }
     } 
 }
