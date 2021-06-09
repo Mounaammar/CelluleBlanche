@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EffetBoutonUI : MonoBehaviour
 {
@@ -11,19 +12,21 @@ public class EffetBoutonUI : MonoBehaviour
     public string infos;
 
     private bool estActif = false;
-    public Text t;
+    public TextMeshProUGUI t;
 
    
     
     void Start()
     {
-        //Text t = GameObject.Find("Information").GetComponent<UnityEngine.UI.Text>(); 
-        UiButton.onClick.AddListener(()=>{
-            if(!estActif){
-            estActif =true;
-            t.text = infos;
+        UiButton.onClick.AddListener(()=>
+        {
+            if(!estActif)
+            {
+                estActif =true;
+                t.text = infos;
             }
-        else{
+        else
+        {
             t.text = "";
             estActif = false;
         }

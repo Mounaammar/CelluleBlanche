@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
+
 public class creationWaffer : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -20,7 +22,7 @@ public class creationWaffer : MonoBehaviour
     private bool aWaffer;
     public Transform tailleDuWaffer; 
     private bool porteEstFermee;
-    private bool aLiquide;
+    private bool aLiquide = false;
     public Material matFin;
     public Renderer matDuWaffer;
 
@@ -45,26 +47,31 @@ public class creationWaffer : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider collision){
-        if(collision.tag == "waffer" ){
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "waffer")
+        {
             this.GetComponent<Renderer>().material = mChangement;
-            aWaffer = true ;
+            aWaffer = true;
         }
-        if(collision.tag == "flacon" && aWaffer ){
-
+    }
+    void OnTriggerStay(Collider collision)
+    {
+        if (!aLiquide && collision.tag == "flacon" && aWaffer && collision.gameObject.transform.eulerAngles.z > 90 && collision.gameObject.transform.eulerAngles.z < 270)
+        {
             this.GetComponent<Renderer>().material = mFin;
             aLiquide = true;
             auLiquide.Play();
         }
 
-        
-
-
     }
-    public void lancerMachine(){
 
-            if(aLiquide && aWaffer){
-                if(!estFait){
+    public void lancerMachine()
+    {
+        if (aLiquide && aWaffer)
+        {
+            if (!estFait)
+            {
                 au2.Play();
                 tailleDuWaffer.localScale += new Vector3(0f,0.1f,0f);
                 matDuWaffer.material = matFin;
