@@ -35,31 +35,38 @@ public class CreationImpr : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider collision){
-        if(collision.tag =="waffer" && ws.estFini){
+    void OnTriggerEnter(Collider collision)
+    {
+        if(collision.tag == "waffer" && ws.estFini)
+        {
             waffer.position = thisTransform.position + thisTransform.TransformDirection(new Vector3(0f, 0.005f,-0.01f));
             waffer.eulerAngles  = new Vector3(0,0,0);
             wafferBody.constraints = RigidbodyConstraints.FreezeAll;
-            aWaffer=true;
+            aWaffer = true;
             grabWaffer.enabled = false;
-            }
-        if(collision.tag == "patron" && aWaffer){
+        }
+        if(collision.tag == "patron" && aWaffer)
+        {
             patron.position = thisTransform.position + thisTransform.TransformDirection(new Vector3(0f, 0.009f,-0.01f));
             patron.eulerAngles  = new Vector3(0,0,0);
             patronBody.constraints = RigidbodyConstraints.FreezeAll;
-            aPatron =true;
+            aPatron = true;
             grabPatron.enabled = false;
         }
 
     }
 
-    public void changeMat(){
-        if(aPatron){
+    public void changeMat()
+    {
+        if(aPatron)
+        {
             wafferMat.material = patronMat.material;
             grabPatron.enabled = true;
             grabWaffer.enabled = true;
             wafferMat.material = matFin;
-            ws.aPatron =true;
+            ws.aPatron = true;
+
+            wafferBody.constraints = RigidbodyConstraints.None;
         }
     } 
 }
